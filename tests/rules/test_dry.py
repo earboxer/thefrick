@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.dry import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.dry import match, get_new_command
+from thefrick.types import Command
 
 
 @pytest.mark.parametrize('command', [

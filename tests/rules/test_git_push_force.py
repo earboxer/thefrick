@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.git_push_force import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.git_push_force import match, get_new_command
+from thefrick.types import Command
 
 
 git_err = '''

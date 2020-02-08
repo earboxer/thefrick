@@ -2,12 +2,12 @@ import pytest
 import six
 import os
 from mock import Mock
-from thefuck import const
+from thefrick import const
 
 
 @pytest.fixture
 def load_source(mocker):
-    return mocker.patch('thefuck.conf.load_source')
+    return mocker.patch('thefrick.conf.load_source')
 
 
 def test_settings_defaults(load_source, settings):
@@ -46,15 +46,15 @@ class TestSettingsFromFile(object):
 @pytest.mark.usefixture('load_source')
 class TestSettingsFromEnv(object):
     def test_from_env(self, os_environ, settings):
-        os_environ.update({'THEFUCK_RULES': 'bash:lisp',
-                           'THEFUCK_EXCLUDE_RULES': 'git:vim',
-                           'THEFUCK_WAIT_COMMAND': '55',
-                           'THEFUCK_REQUIRE_CONFIRMATION': 'true',
-                           'THEFUCK_NO_COLORS': 'false',
-                           'THEFUCK_PRIORITY': 'bash=10:lisp=wrong:vim=15',
-                           'THEFUCK_WAIT_SLOW_COMMAND': '999',
-                           'THEFUCK_SLOW_COMMANDS': 'lein:react-native:./gradlew',
-                           'THEFUCK_NUM_CLOSE_MATCHES': '359'})
+        os_environ.update({'THEFRICK_RULES': 'bash:lisp',
+                           'THEFRICK_EXCLUDE_RULES': 'git:vim',
+                           'THEFRICK_WAIT_COMMAND': '55',
+                           'THEFRICK_REQUIRE_CONFIRMATION': 'true',
+                           'THEFRICK_NO_COLORS': 'false',
+                           'THEFRICK_PRIORITY': 'bash=10:lisp=wrong:vim=15',
+                           'THEFRICK_WAIT_SLOW_COMMAND': '999',
+                           'THEFRICK_SLOW_COMMANDS': 'lein:react-native:./gradlew',
+                           'THEFRICK_NUM_CLOSE_MATCHES': '359'})
         settings.init()
         assert settings.rules == ['bash', 'lisp']
         assert settings.exclude_rules == ['git', 'vim']
@@ -67,7 +67,7 @@ class TestSettingsFromEnv(object):
         assert settings.num_close_matches == 359
 
     def test_from_env_with_DEFAULT(self, os_environ, settings):
-        os_environ.update({'THEFUCK_RULES': 'DEFAULT_RULES:bash:lisp'})
+        os_environ.update({'THEFRICK_RULES': 'DEFAULT_RULES:bash:lisp'})
         settings.init()
         assert settings.rules == const.DEFAULT_RULES + ['bash', 'lisp']
 
@@ -105,13 +105,13 @@ class TestInitializeSettingsFile(object):
 
 
 @pytest.mark.parametrize('legacy_dir_exists, xdg_config_home, result', [
-    (False, '~/.config', '~/.config/thefuck'),
-    (False, '/user/test/config/', '/user/test/config/thefuck'),
-    (True, '~/.config', '~/.thefuck'),
-    (True, '/user/test/config/', '~/.thefuck')])
+    (False, '~/.config', '~/.config/thefrick'),
+    (False, '/user/test/config/', '/user/test/config/thefrick'),
+    (True, '~/.config', '~/.thefrick'),
+    (True, '/user/test/config/', '~/.thefrick')])
 def test_get_user_dir_path(mocker, os_environ, settings, legacy_dir_exists,
                            xdg_config_home, result):
-    mocker.patch('thefuck.conf.Path.is_dir',
+    mocker.patch('thefrick.conf.Path.is_dir',
                  return_value=legacy_dir_exists)
 
     if xdg_config_home is not None:

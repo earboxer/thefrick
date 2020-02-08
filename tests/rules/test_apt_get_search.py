@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.apt_get_search import get_new_command, match
-from thefuck.types import Command
+from thefrick.rules.apt_get_search import get_new_command, match
+from thefrick.types import Command
 
 
 def test_match():

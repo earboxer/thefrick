@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.remove_shell_prompt_literal import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.remove_shell_prompt_literal import match, get_new_command
+from thefrick.types import Command
 
 
 @pytest.fixture

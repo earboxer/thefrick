@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.git_stash import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.git_stash import match, get_new_command
+from thefrick.types import Command
 
 
 cherry_pick_error = (

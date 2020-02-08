@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.git_commit_amend import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.git_commit_amend import match, get_new_command
+from thefrick.types import Command
 
 
 @pytest.mark.parametrize('script, output', [

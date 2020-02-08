@@ -1,6 +1,6 @@
 import pytest
-from thefuck.argument_parser import Parser
-from thefuck.const import ARGUMENT_PLACEHOLDER
+from thefrick.argument_parser import Parser
+from thefrick.const import ARGUMENT_PLACEHOLDER
 
 
 def _args(**override):
@@ -14,23 +14,23 @@ def _args(**override):
 
 
 @pytest.mark.parametrize('argv, result', [
-    (['thefuck'], _args()),
-    (['thefuck', '-a'], _args(alias='fuck')),
-    (['thefuck', '--alias', '--enable-experimental-instant-mode'],
-     _args(alias='fuck', enable_experimental_instant_mode=True)),
-    (['thefuck', '-a', 'fix'], _args(alias='fix')),
-    (['thefuck', 'git', 'branch', ARGUMENT_PLACEHOLDER, '-y'],
+    (['thefrick'], _args()),
+    (['thefrick', '-a'], _args(alias='frick')),
+    (['thefrick', '--alias', '--enable-experimental-instant-mode'],
+     _args(alias='frick', enable_experimental_instant_mode=True)),
+    (['thefrick', '-a', 'fix'], _args(alias='fix')),
+    (['thefrick', 'git', 'branch', ARGUMENT_PLACEHOLDER, '-y'],
      _args(command=['git', 'branch'], yes=True)),
-    (['thefuck', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-y'],
+    (['thefrick', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-y'],
      _args(command=['git', 'branch', '-a'], yes=True)),
-    (['thefuck', ARGUMENT_PLACEHOLDER, '-v'], _args(version=True)),
-    (['thefuck', ARGUMENT_PLACEHOLDER, '--help'], _args(help=True)),
-    (['thefuck', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-y', '-d'],
+    (['thefrick', ARGUMENT_PLACEHOLDER, '-v'], _args(version=True)),
+    (['thefrick', ARGUMENT_PLACEHOLDER, '--help'], _args(help=True)),
+    (['thefrick', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-y', '-d'],
      _args(command=['git', 'branch', '-a'], yes=True, debug=True)),
-    (['thefuck', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-r', '-d'],
+    (['thefrick', 'git', 'branch', '-a', ARGUMENT_PLACEHOLDER, '-r', '-d'],
      _args(command=['git', 'branch', '-a'], repeat=True, debug=True)),
-    (['thefuck', '-l', '/tmp/log'], _args(shell_logger='/tmp/log')),
-    (['thefuck', '--shell-logger', '/tmp/log'],
+    (['thefrick', '-l', '/tmp/log'], _args(shell_logger='/tmp/log')),
+    (['thefrick', '--shell-logger', '/tmp/log'],
      _args(shell_logger='/tmp/log'))])
 def test_parse(argv, result):
     assert vars(Parser().parse(argv)) == result
