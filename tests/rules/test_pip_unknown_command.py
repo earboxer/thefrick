@@ -30,7 +30,7 @@ def test_match(pip_unknown_cmd, pip_unknown_cmd_without_recommend):
 
 
 @pytest.mark.parametrize('script, broken, suggested, new_cmd', [
-    ('pip un+install thefuck', 'un+install', 'uninstall', 'pip uninstall thefuck'),
+    ('pip un+install thefrick', 'un+install', 'uninstall', 'pip uninstall thefrick'),
     ('pip instatl', 'instatl', 'install', 'pip install')])
 def test_get_new_command(script, new_cmd, pip_unknown_cmd):
     assert get_new_command(Command(script,
