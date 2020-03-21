@@ -1,5 +1,5 @@
-from thefuck.rules.docker_login import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.docker_login import match, get_new_command
+from thefrick.types import Command
 
 
 def test_match():

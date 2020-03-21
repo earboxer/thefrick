@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.git_rm_local_modifications import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.git_rm_local_modifications import match, get_new_command
+from thefrick.types import Command
 
 
 @pytest.fixture

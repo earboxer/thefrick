@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.tsuru_login import match, get_new_command
-from thefuck.types import Command
+from thefrick.rules.tsuru_login import match, get_new_command
+from thefrick.types import Command
 
 
 error_msg = (

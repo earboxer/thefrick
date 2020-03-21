@@ -2,8 +2,8 @@
 
 import pytest
 
-from thefuck.rules import switch_lang
-from thefuck.types import Command
+from thefrick.rules import switch_lang
+from thefrick.types import Command
 
 
 @pytest.mark.parametrize('command', [

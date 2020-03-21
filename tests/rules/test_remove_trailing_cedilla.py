@@ -1,6 +1,6 @@
 import pytest
-from thefuck.rules.remove_trailing_cedilla import match, get_new_command, CEDILLA
-from thefuck.types import Command
+from thefrick.rules.remove_trailing_cedilla import match, get_new_command, CEDILLA
+from thefrick.types import Command
 
 
 @pytest.mark.parametrize('command', [
