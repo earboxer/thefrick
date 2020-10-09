@@ -5,10 +5,6 @@ from ..utils import which
 
 
 def _get_alias(known_args):
-    if six.PY2:
-        warn("The Frick will drop Python 2 support soon, more details "
-             "https://github.com/nvbn/thefrick/issues/685")
-
     alias = shell.app_alias(known_args.alias)
 
     if known_args.enable_experimental_instant_mode:
